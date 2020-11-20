@@ -1,4 +1,9 @@
-let global = (() => {
+// import personajes from "./personajes";
+// // import detalles from "./detallesPersonajes";
+// console.log(personajes);
+// // console.log(detalles);
+
+let llamadoDePersonajes = (() => {
     let mostrar = document.querySelector('.resultados');
     let datostotales;
     let url = "https://rickandmortyapi.com/api/character";
@@ -11,22 +16,22 @@ let global = (() => {
         }catch (error) {
             console.error(error);
         }
-
     }
 
     return {
         mostrarPersonaje: async () => {
+            try {
                 var personaje = await getPersonaje();
                 personaje.results.forEach ((element) => {
                     mostrar.innerHTML += `
-                    <div  class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 " >
+                    <div  class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 " >
                         <img type="button"  data-toggle="modal" data-target="#exampleModal" src="${element.image}" alt="">
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title " id="exampleModalLabel">${element.name}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog ">
+                                    <div class="modal-content ">
+                                        <div class="modal-header bg-dark text-white">
+                                            <h5 class="modal-title" id="exampleModalLabel">${element.name}</h5>
+                                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -36,12 +41,15 @@ let global = (() => {
                                                 <li>Condicion: ${element.status}</li>
                                                 <li>Especie: ${element.species}</li>
                                                 <li>Sexo :${element.gender}</li>
+                                                <li>Creación :${element.created}</li>
+                                                <li>Origen :${element.origin.name}</li>
                                                 <li>Planeta: ${element.location.name}</li>
+                                                <li>Aparición en episodios :${element.episode.length}</li>
                                             </ul>
-                                    </div>
-                                    <div class="modal-footer">
+                                        </div>
+                                        <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -50,30 +58,25 @@ let global = (() => {
                             <li>${element.species}</li>
                         </ul> 
                     </div>
-
-                    `; 
+                    `;
                  });   
-},
-
-        // modal: async () => {
-        //     var personaje = await getPersonaje();
-        //     personaje.results.forEach ((element) => {
-        //         mostrar.innerHTML +=
-
-        //     });    
-        // },
-
+            } catch (error) {
+                console.error(error);
+            }
+    },
         eliminarSpiner: async () => {
-            let spiner = document.querySelector('.spinner-border')
-            spiner.style.display = "none";
-            cantidadPersonajes.innerHTML = `${getPersonaje.length}`;
-
-            
+            try {
+                let spiner = document.querySelector('.spinner-border')
+                spiner.style.display = "none";
+                cantidadPersonajes.innerHTML = `${datostotales.results.length}`; 
+            } catch (error) {
+                console.error(error);
+            }
         }
     }
 })();
 
-global.mostrarPersonaje();
+llamadoDePersonajes.mostrarPersonaje();
 setTimeout(()=>{
-    global.eliminarSpiner();
+    llamadoDePersonajes.eliminarSpiner();
 },2000);
