@@ -1,3 +1,5 @@
+//--------------------EXPORT--------------------
+
 export default class Personajes {
     constructor(id) {
         this._id = id;

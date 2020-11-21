@@ -6,34 +6,44 @@ body {
     background-position: center;
     background-repeat: repeat-y;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     color: white;
 }
 
+/* --------------------RESULTADOS-------------------- */
+
 .resultados img {
     border-radius: 50%;
-    padding: 10px;
-    width: 200px;
+    margin: 20px;
+    width: 150px;
+    box-shadow:0px 0px 30px 0px yellow;
 }
+.resultados img:hover{
+    box-shadow:0px 0px 40px 0px red;
+    transform: scale(1.1);
+    transition: 1s;
 
+}
 .detallePersona {
     vertical-align: middle;
 }
-
 ul {
     background-color: rgba(245, 245, 220, 0.151);
     height: auto;
-    display: inline-block
-    
+    display: inline-block;
+    box-shadow: 0px 0px 10px 0px white;
+    border-radius: 10px;
+    padding: 10px 20px;   
+    text-align: start;
 }
-
 ul li span {
     font-size: 20px;
     font-weight: 100;
 }
 
+/* --------------------MODAL-------------------- */
+
 .modal {
     color: rgb(26, 23, 23);
     font-family: 'Times New Roman', Times, serif;
 }
-
