@@ -40,6 +40,5 @@ export default class DetallesPersonaje extends Personajes {
 };
 
 const detallePersonajes = new DetallesPersonaje()
-console.log(detallePersonajes);
             
           
