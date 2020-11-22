@@ -17,10 +17,14 @@ body {
     margin: 20px;
     width: 150px;
     box-shadow:0px 0px 30px 0px yellow;
+    transition: 1s;
+    z-index: -20px;
 }
 .resultados img:hover{
-    box-shadow:0px 0px 40px 0px red;
+    color: #255784;
+    background: #2196f3;
     transform: scale(1.1);
+    box-shadow: 0 0 20px yellow, 0 0 80px blue, 0 0 40px red;
     transition: 1s;
 
 }
@@ -35,7 +39,13 @@ ul {
     border-radius: 10px;
     padding: 10px 20px;   
     text-align: start;
+    transition: 1s;
 }
+ul:hover:nth-child(2){
+    box-shadow: 0 0 20px red;    
+    transition: 1s;
+}
+
 ul li span {
     font-size: 20px;
     font-weight: 100;
